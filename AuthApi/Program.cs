@@ -23,9 +23,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentityApiEndpoints<ApplicationUser>()
-    .AddUserManager<ApplicationUser>()
-    .AddRoleManager<ApplicationRole>()
-    .AddSignInManager<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
