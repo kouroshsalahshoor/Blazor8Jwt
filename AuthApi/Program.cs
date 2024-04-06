@@ -18,7 +18,8 @@ builder.Services.AddSwaggerGen(options =>
     {
         In = ParameterLocation.Header,
         Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey
+        Type = SecuritySchemeType.ApiKey,
+        Description = "Please add token in this format: Bearer {token}"
     });
 
     options.OperationFilter<SecurityRequirementsOperationFilter>();
@@ -26,9 +27,10 @@ builder.Services.AddSwaggerGen(options =>
 //builder.Services.AddSwaggerGen();
 
 //added
-builder.Services.AddAuthentication(options =>
-{
-});
+//builder.Services.AddAuthentication(options =>
+//{
+//});
+builder.Services.AddAuthorization();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
     throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
